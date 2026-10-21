@@ -1,0 +1,30 @@
+@startuml
+title System Context Diagram
+
+top to bottom direction
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam nodesep 140
+skinparam ranksep 70
+skinparam rectangle {
+  RoundCorner 0
+}
+
+rectangle "User\n\nViews air quality\nand forecasts" as User
+rectangle "Air Quality Forecasting\nSystem" as System
+rectangle "Project Developer\n\nConfigures and maintains\nthe system" as Developer
+rectangle "Historical Air Quality\nDataset" as Dataset
+
+' Fix the horizontal order
+User -[hidden]right- System
+System -[hidden]right- Developer
+Developer -[hidden]right- Dataset
+
+' Actual interactions
+User -right-> System : View forecasts
+Developer -left-> System : Configure system
+Dataset -left-> System : Historical data
+
+@enduml
