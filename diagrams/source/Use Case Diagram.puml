@@ -1,0 +1,42 @@
+
+@startuml
+title Use Case Diagram
+
+top to bottom direction
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam nodesep 120
+skinparam ranksep 70
+skinparam rectangle {
+  RoundCorner 0
+}
+
+rectangle "User\n\nViews air quality\nand forecasts" as User
+rectangle "Project Developer\n\nConfigures and maintains\nthe system" as Developer
+
+rectangle "Air Quality Forecasting\nSystem" as System {
+  rectangle "View current air quality" as UC1
+  rectangle "View air quality forecast" as UC2
+  rectangle "View historical data" as UC3
+  rectangle "Select forecast parameters" as UC4
+  rectangle "Manage data and configuration" as UC5
+
+  UC1 -[hidden]left- UC2
+  UC2 -[hidden]left- UC3
+  UC3 -[hidden]left- UC4
+  UC4 -[hidden]left- UC5
+}
+
+User -[hidden]right- Developer
+Developer -[hidden]right- System
+
+User -right-> UC1
+User -right-> UC2
+User -right-> UC3
+User -right-> UC4
+
+Developer -right-> UC5
+
+@enduml
