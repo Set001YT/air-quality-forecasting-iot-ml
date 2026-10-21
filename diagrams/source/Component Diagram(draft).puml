@@ -1,0 +1,44 @@
+@startuml
+title Component Diagram
+
+top to bottom direction
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam defaultFontName Arial
+skinparam nodesep 45
+skinparam ranksep 55
+skinparam packageStyle rectangle
+skinparam ComponentBorderColor #404040
+
+package "User Interface" {
+  component "Web Dashboard\nHTML / CSS / JavaScript" as UI
+}
+
+package "Backend" {
+  component "REST API\nFastAPI" as API
+  component "Forecast Service\nPython" as Forecast
+  component "Data Service\nPython" as DataService
+
+  Forecast -[hidden]right- DataService
+}
+
+package "Data and ML" {
+  component "ML Model\nscikit-learn" as ML
+  database "SQLite Database" as DB
+  component "Historical Dataset\nCSV / supported format" as Dataset
+
+  ML -[hidden]right- DB
+  DB -[hidden]right- Dataset
+}
+
+UI -down-> API : HTTP requests
+API -down-> Forecast : Forecast request
+API -down-> DataService : Data request
+
+Forecast -down-> ML : Prediction input
+Forecast -right-> DataService : Load data
+
+DataService -down-> DB : Read / write
+DataService -down-> Dataset : Load historical data
