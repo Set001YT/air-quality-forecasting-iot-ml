@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AirScope — UX Prototype</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fa;
+            color: #17232d;
+            font: 15px/1.5 Arial, sans-serif
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #dfe5eb;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 700
+        }
+
+        .brand small {
+            display: block;
+            font-size: 12px;
+            color: #657381;
+            font-weight: 400
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            align-items: center
+        }
+
+        nav a {
+            color: #657381;
+            text-decoration: none
+        }
+
+        main {
+            max-width: 1160px;
+            margin: 28px auto;
+            padding: 0 20px
+        }
+
+        .intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 5px 0
+        }
+
+        h2 {
+            font-size: 17px;
+            margin: 0 0 12px
+        }
+
+        .muted {
+            color: #657381
+        }
+
+        .tag {
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #245d78;
+            font-weight: 700
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        select,
+        button {
+            padding: 10px;
+            border: 1px solid #dfe5eb;
+            border-radius: 8px;
+            background: #fff;
+            color: #17232d;
+            font: inherit
+        }
+
+        button {
+            background: #245d78;
+            color: white;
+            cursor: pointer
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 15px
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #dfe5eb;
+            border-radius: 13px;
+            padding: 18px;
+            min-width: 0
+        }
+
+        .metric {
+            grid-column: span 3
+        }
+
+        .wide {
+            grid-column: span 8
+        }
+
+        .side {
+            grid-column: span 4
+        }
+
+        .full {
+            grid-column: span 12
+        }
+
+        .value {
+            font-size: 29px;
+            font-weight: 700;
+            margin: 6px 0
+        }
+
+        .unit {
+            font-size: 12px;
+            color: #657381;
+            font-weight: 400
+        }
+
+        .pill {
+            display: inline-block;
+            background: #f1f3f5;
+            color: #4d5965;
+            padding: 4px 7px;
+            border-radius: 5px;
+            font-size: 11px
+        }
+
+        .chart {
+            width: 100%;
+            height: 210px
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 65px 1fr 48px;
+            gap: 9px;
+            align-items: center;
+            margin: 15px 0
+        }
+
+        .bar {
+            height: 9px;
+            background: #edf0f3;
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #6c9bad
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        th,
+        td {
+            padding: 10px 7px;
+            text-align: left;
+            border-bottom: 1px solid #e4e8ed
+        }
+
+        th {
+            color: #657381
+        }
+
+        .note {
+            margin-top: 16px;
+            padding: 12px 14px;
+            background: #fff;
+            border-left: 3px solid #245d78;
+            color: #657381;
+            font-size: 12px
+        }
+
+        footer {
+            max-width: 1160px;
+            margin: auto;
+            padding: 0 20px 25px;
+            color: #657381;
+            font-size: 12px
+        }
+
+        @media(max-width:760px) {
+            .metric {
+                grid-column: span 6
+            }
+
+            .wide,
+            .side {
+                grid-column: span 12
+            }
+        }
+
+        @media(max-width:430px) {
+            .metric {
+                grid-column: span 12
+            }
+
+            h1 {
+                font-size: 23px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">AirScope<small>Air Quality Forecasting System</small></div>
+        <nav><a href="#overview">Overview</a><a href="#forecast">Forecast</a><a href="#history">History</a><a
+                href="#about">About</a></nav>
+    </header>
+    <main id="overview">
+        <div class="intro">
+            <div>
+                <div class="tag">UX prototype · design stage</div>
+                <h1>Air quality overview</h1>
+                <div class="muted" id="subtitle">Illustrative dashboard for measurements and forecast output.</div>
+            </div>
+            <div class="controls"><select id="location" aria-label="Location">
+                    <option>Astana — Demo station</option>
+                    <option>Almaty — Demo station</option>
+                    <option>Karaganda — Demo station</option>
+                </select><select id="horizon" aria-label="Forecast horizon">
+                    <option value="24">Next 24 hours</option>
+                    <option value="48">Next 48 hours</option>
+                    <option value="72">Next 72 hours</option>
+                </select><button id="update">Update view</button></div>
+        </div>
+        <div class="grid">
+            <section class="card metric">
+                <div class="muted">PM2.5</div>
+                <div class="value">18.4 <span class="unit">µg/m³</span></div>
+                <div class="muted">Latest sample · demo</div>
+                <p><span class="pill">Illustrative value</span></p>
+            </section>
+            <section class="card metric">
+                <div class="muted">PM10</div>
+                <div class="value">31.2 <span class="unit">µg/m³</span></div>
+                <div class="muted">Latest sample · demo</div>
+            </section>
+            <section class="card metric">
+                <div class="muted">Temperature</div>
+                <div class="value">12.1 <span class="unit">°C</span></div>
+                <div class="muted">Context variable · demo</div>
+            </section>
+            <section class="card metric">
+                <div class="muted">Data coverage</div>
+                <div class="value">94<span class="unit">%</span></div>
+                <div class="muted">Selected period · demo</div>
+            </section>
+            <section class="card wide" id="forecast">
+                <h2>Forecast trend</h2>
+                <div class="muted">Example PM2.5 trend · not model output</div><svg class="chart" viewBox="0 0 620 220"
+                    role="img" aria-label="Illustrative PM2.5 trend">
+                    <g stroke="#e5e9ed">
+                        <path d="M45 30H600M45 70H600M45 110H600M45 150H600M45 190H600" />
+                    </g>
+                    <g fill="#657381" font-size="11"><text x="8" y="34">40</text><text x="8" y="74">30</text><text x="8"
+                            y="114">20</text><text x="8" y="154">10</text><text x="18" y="194">0</text><text x="45"
+                            y="213">Now</text><text x="220" y="213">+6h</text><text x="395" y="213">+12h</text><text
+                            x="565" y="213">+18h</text></g>
+                    <path
+                        d="M45 118 L115 105 L185 111 L255 87 L325 96 L395 72 L465 83 L535 62 L600 76 L600 190 L45 190Z"
+                        fill="#e8f1f5" />
+                    <path d="M45 118 L115 105 L185 111 L255 87 L325 96 L395 72 L465 83 L535 62 L600 76" fill="none"
+                        stroke="#245d78" stroke-width="3" stroke-linejoin="round" />
+                </svg>
+                <div class="muted" style="font-size:12px">Illustrative forecast · target variable: PM2.5</div>
+            </section>
+            <section class="card side">
+                <h2>Forecast summary</h2>
+                <div class="tag">Next <span id="hlabel">24</span> hours</div>
+                <div class="row"><span>Expected</span>
+                    <div class="bar"><span style="width:48%"></span></div><strong>19.1</strong>
+                </div>
+                <div class="row"><span>Minimum</span>
+                    <div class="bar"><span style="width:28%"></span></div><strong>11.2</strong>
+                </div>
+                <div class="row"><span>Maximum</span>
+                    <div class="bar"><span style="width:73%"></span></div><strong>29.4</strong>
+                </div>
+                <p class="muted" style="font-size:12px">Placeholder values for demonstrating the planned screen.</p>
+            </section>
+            <section class="card full" id="history">
+                <h2>Recent observations</h2>
+                <div class="muted">Example table; no live station connection is configured.</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>PM2.5 (µg/m³)</th>
+                            <th>PM10 (µg/m³)</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08:00</td>
+                            <td>16.8</td>
+                            <td>29.1</td>
+                            <td>Demo dataset</td>
+                        </tr>
+                        <tr>
+                            <td>10:00</td>
+                            <td>17.5</td>
+                            <td>30.0</td>
+                            <td>Demo dataset</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                            <td>18.4</td>
+                            <td>31.2</td>
+                            <td>Demo dataset</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="card full" id="about">
+                <h2>System workflow</h2>
+                <p class="muted">Historical observations (and later, IoT measurements) → data processing →
+                    machine-learning forecasting service → API → dashboard.</p>
+            </section>
+        </div>
+        <div class="note">Prototype only. All values are fictional examples. No trained model, live sensor feed, or
+            production API is connected.</div>
+    </main>
+    <footer>Air Quality Forecasting System · Initial UX prototype · October 2026</footer>
+    <script>const h = document.getElementById('horizon'); h.addEventListener('change', () => document.getElementById('hlabel').textContent = h.value); document.getElementById('update').addEventListener('click', () => { document.getElementById('hlabel').textContent = h.value; document.getElementById('subtitle').textContent = 'Illustrative dashboard for ' + document.getElementById('location').value + '; values remain mock data.'; });</script>
+</body>
+
+</html>
