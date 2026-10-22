@@ -66,7 +66,7 @@ Both team members will participate in requirements analysis, system design, inte
 - `requirements.txt` — Python dependencies.
 - `.gitignore` — files and directories excluded from version control.
 
-The `frontend`, `backend`, and `ml` directories define the planned application structure. Their implementation will be added progressively as the project develops.
+The documentation and source-code structure will be expanded as the project develops. The `frontend`, `backend`, and `ml` directories represent planned application components; their implementation will be added progressively.
 
 ## Project Management
 
