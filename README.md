@@ -48,16 +48,19 @@ Both team members will participate in requirements analysis, system design, inte
 
 ## Project Structure
 
-- `docs/` — project documentation and research materials.
-- `diagrams/source/` — editable architecture diagrams.
+- `docs/` — project documentation and research materials, organized by topic.
+- `diagrams/source/` — editable source files for architecture diagrams.
 - `diagrams/exports/` — exported diagrams for reports and presentations.
-- `prototype/` — prototype materials.
-- `src/` — application source code.
-- `tests/` — test files.
+- `prototype/` — interactive HTML dashboard prototype and related materials.
+- `src/` — application source code, organized into the following components:
+  - `src/frontend/` — user interface and dashboard.
+  - `src/backend/` — backend logic, API endpoints, and interaction between system components.
+  - `src/ml/` — data preprocessing, model training, evaluation, and forecasting.
+- `tests/` — automated and manual test materials.
 - `requirements.txt` — Python dependencies.
 - `.gitignore` — files and directories excluded from version control.
 
-The repository structure may change as the project develops.
+The `frontend`, `backend`, and `ml` directories define the planned application structure. Their implementation will be added progressively as the project develops.
 
 ## Project Management
 
