@@ -47,8 +47,14 @@ Both team members will participate in requirements analysis, system design, inte
 **Project Supervisor:** Marzhan Turarova
 
 ## Project Structure
-
-- `docs/` — project documentation and research materials, organized by topic.
+- `docs/` — project documentation organized into seven topic-based directories:
+  - `architecture/` — system architecture and diagrams documentation.
+  - `evaluation/` — verification, testing, and model evaluation plan.
+  - `literature-review/` — literature review and research findings.
+  - `project-proposal/` — project proposal, problem statement, objectives, and scope.
+  - `requirements/` — functional and non-functional requirements with acceptance criteria.
+  - `system-comparison/` — comparison of existing air-quality monitoring and forecasting systems.
+  - `technology-comparison/` — comparison of alternative technologies and technical decisions.
 - `diagrams/source/` — editable source files for architecture diagrams.
 - `diagrams/exports/` — exported diagrams for reports and presentations.
 - `prototype/` — interactive HTML dashboard prototype and related materials.
